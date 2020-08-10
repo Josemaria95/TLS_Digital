@@ -1,0 +1,1235 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/13/2020 11:17:19 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="TLSCPU00048"
+  DTS:CreatorName="GRUPOTLS\jmunoz"
+  DTS:DTSID="{BAB6DB7A-D6BC-4827-9A5B-E7F4D4725EEE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LocaleID="10250"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{B4C23353-6A60-417F-BAC5-ED70711079FD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{969F095F-D6CE-4BEC-B6FC-FA2F063678F9}"
+      DTS:ObjectName="Administrador de conexiones con Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\TLS_DB\DataSource_ETL\Prometeo_Seguimiento\Procesados\Indicadores_Bidireccionales_Marzo_2020.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Indicadores_Bidireccionales_Marzo_2020.xlsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A774DBA0-65AF-4BAC-B36D-FA8329974E6D}"
+      DTS:ObjectName="Indicadores_Bidireccionales_Marzo_2020.xlsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\TLS_DB\DataSource_ETL\Prometeo_Seguimiento\Procesados\Indicadores_Bidireccionales_Marzo_2020.xlsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Procesados]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{D1987E76-DCCC-46DE-A683-697F60216A5F}"
+      DTS:ObjectName="Procesados">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\TLS_DB\DataSource_ETL\Prometeo_Seguimiento\Procesados" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TLSCPU00048\SQLEXPRESS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D8F42A7A-858D-4303-B1F8-EBC9F03E2757}"
+      DTS:ObjectName="TLSCPU00048\SQLEXPRESS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=TLSCPU00048\SQLEXPRESS;Initial Catalog=TLS_DIGITAL;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{D8F42A7A-858D-4303-B1F8-EBC9F03E2757}TLSCPU00048\SQLEXPRESS;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{80E6947E-E717-44E0-8D1C-25BD3281455F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\TLS_DB\DataSource_ETL\Prometeo_Seguimiento\Procesados\INDICADORES BIDIRECCIONAL - 3_2020.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Contenedor de secuencias"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{CC531132-655C-4BD0-A116-4E9087090879}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Contenedor de secuencias">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{5DDA159D-5A4E-4220-B529-46DD25C6394D}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Archivo_Prometeo">
+          <DTS:VariableValue
+            DTS:DataType="8">C:\TLS_DB\DataSource_ETL\Prometeo_Seguimiento\Procesados\Indicadores_Bidireccionales_Marzo_2020.xlsx</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Contenedor de bucles Foreach"
+          DTS:DTSID="{B0B999BE-79C8-4D8A-A08A-70E619117415}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Contenedor de bucles Foreach">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{BFE8D2E9-CB93-468E-85E5-489F0E5BD8EA}"
+            DTS:ObjectName="{BFE8D2E9-CB93-468E-85E5-489F0E5BD8EA}">
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="C:\TLS_DB\DataSource_ETL\Prometeo_Seguimiento" />
+                <FEFEProperty
+                  FileSpec="*.xlsx" />
+                <FEFEProperty
+                  FileNameRetrievalType="0" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task"
+              DTS:CreationName="Microsoft.Pipeline"
+              DTS:Description="Data Flow Task"
+              DTS:DTSID="{6D815DF2-B9C2-40BB-BC91-C605F2241636}"
+              DTS:ExecutableType="Microsoft.Pipeline"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Data Flow Task"
+              DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <pipeline
+                  version="1">
+                  <components>
+                    <component
+                      refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source"
+                      componentClassID="Microsoft.ExcelSource"
+                      contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                      description="Excel Source"
+                      name="Excel Source"
+                      usesDispositions="true"
+                      version="1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">base_seguimiento$</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.String"
+                          description="The variable that contains the SQL command to be executed."
+                          name="SqlCommandVariable"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">0</property>
+                        <property
+                          dataType="System.String"
+                          description="The mapping from parameters in the SQL command to variables."
+                          name="ParameterMapping"></property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                          connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <outputs>
+                        <output
+                          refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output]"
+                          name="Excel Source Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ID Prometeo]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[ID Prometeo]"
+                              length="15"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ID Prometeo]"
+                              name="ID Prometeo"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ID Chat]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[ID Chat]"
+                              length="15"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ID Chat]"
+                              name="ID Chat"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ID Mensaje]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[ID Mensaje]"
+                              length="15"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ID Mensaje]"
+                              name="ID Mensaje"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Campana]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Campana]"
+                              length="25"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Campana]"
+                              name="Campana"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Fecha]"
+                              dataType="dbTime"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fecha]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Fecha]"
+                              name="Fecha"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ID Contacto]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[ID Contacto]"
+                              length="25"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ID Contacto]"
+                              name="ID Contacto"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Ident#]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Ident#]"
+                              length="15"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Ident#]"
+                              name="Ident#"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Nick]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Nick]"
+                              length="20"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Nick]"
+                              name="Nick"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Agente]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Agente]"
+                              length="25"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Agente]"
+                              name="Agente"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tipo]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Tipo]"
+                              length="25"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tipo]"
+                              name="Tipo"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Estado]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Estado]"
+                              length="20"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Estado]"
+                              name="Estado"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Canal]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Canal]"
+                              length="20"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Canal]"
+                              name="Canal"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Detalle]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Detalle]"
+                              length="25"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Detalle]"
+                              name="Detalle"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Pool]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Pool]"
+                              length="12"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Pool]"
+                              name="Pool"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Mensaje]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Mensaje]"
+                              length="4000"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Mensaje]"
+                              name="Mensaje"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tipificacion]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Tipificacion]"
+                              length="50"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tipificacion]"
+                              name="Tipificacion"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Estado Prometeo]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Estado Prometeo]"
+                              length="35"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Estado Prometeo]"
+                              name="Estado Prometeo"
+                              truncationRowDisposition="FailComponent" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Scoring]"
+                              dataType="wstr"
+                              errorOrTruncationOperation="Conversion"
+                              errorRowDisposition="FailComponent"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Scoring]"
+                              length="15"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Scoring]"
+                              name="Scoring"
+                              truncationRowDisposition="FailComponent" />
+                          </outputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[ID Prometeo]"
+                              dataType="r8"
+                              name="ID Prometeo" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[ID Chat]"
+                              dataType="r8"
+                              name="ID Chat" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[ID Mensaje]"
+                              dataType="r8"
+                              name="ID Mensaje" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Campana]"
+                              dataType="wstr"
+                              length="255"
+                              name="Campana" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Fecha]"
+                              dataType="date"
+                              name="Fecha" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[ID Contacto]"
+                              dataType="r8"
+                              name="ID Contacto" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Ident#]"
+                              dataType="r8"
+                              name="Ident#" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Nick]"
+                              dataType="wstr"
+                              length="255"
+                              name="Nick" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Agente]"
+                              dataType="wstr"
+                              length="255"
+                              name="Agente" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Tipo]"
+                              dataType="wstr"
+                              length="255"
+                              name="Tipo" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Estado]"
+                              dataType="wstr"
+                              length="255"
+                              name="Estado" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Canal]"
+                              dataType="wstr"
+                              length="255"
+                              name="Canal" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Detalle]"
+                              dataType="wstr"
+                              length="255"
+                              name="Detalle" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Pool]"
+                              dataType="wstr"
+                              length="255"
+                              name="Pool" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Mensaje]"
+                              dataType="wstr"
+                              length="255"
+                              name="Mensaje" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Tipificacion]"
+                              dataType="wstr"
+                              length="255"
+                              name="Tipificacion" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Estado Prometeo]"
+                              dataType="wstr"
+                              length="255"
+                              name="Estado Prometeo" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Scoring]"
+                              dataType="wstr"
+                              length="255"
+                              name="Scoring" />
+                          </externalMetadataColumns>
+                        </output>
+                        <output
+                          refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output]"
+                          isErrorOut="true"
+                          name="Excel Source Error Output">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ID Prometeo]"
+                              dataType="r8"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ID Prometeo]"
+                              name="ID Prometeo" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ID Chat]"
+                              dataType="r8"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ID Chat]"
+                              name="ID Chat" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ID Mensaje]"
+                              dataType="r8"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ID Mensaje]"
+                              name="ID Mensaje" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Campana]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Campana]"
+                              name="Campana" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Fecha]"
+                              dataType="date"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Fecha]"
+                              name="Fecha" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ID Contacto]"
+                              dataType="r8"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ID Contacto]"
+                              name="ID Contacto" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Ident#]"
+                              dataType="r8"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Ident#]"
+                              name="Ident#" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Nick]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Nick]"
+                              name="Nick" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Agente]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Agente]"
+                              name="Agente" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Tipo]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Tipo]"
+                              name="Tipo" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Estado]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Estado]"
+                              name="Estado" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Canal]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Canal]"
+                              name="Canal" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Detalle]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Detalle]"
+                              name="Detalle" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Pool]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Pool]"
+                              name="Pool" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Mensaje]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Mensaje]"
+                              name="Mensaje" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Tipificacion]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Tipificacion]"
+                              name="Tipificacion" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Estado Prometeo]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Estado Prometeo]"
+                              name="Estado Prometeo" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Scoring]"
+                              dataType="wstr"
+                              length="255"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Scoring]"
+                              name="Scoring" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                    <component
+                      refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination"
+                      componentClassID="Microsoft.OLEDBDestination"
+                      contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                      description="OLE DB Destination"
+                      name="OLE DB Destination"
+                      usesDispositions="true"
+                      version="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                          name="CommandTimeout">0</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the name of the database object used to open a rowset."
+                          name="OpenRowset">[import_prometeo_seguimiento_data_pre]</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the variable that contains the name of the database object used to open a rowset."
+                          name="OpenRowsetVariable"></property>
+                        <property
+                          dataType="System.String"
+                          description="The SQL command to be executed."
+                          name="SqlCommand"
+                          UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the column code page to use when code page information is unavailable from the data source."
+                          name="DefaultCodePage">1252</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Forces the use of the DefaultCodePage property value when describing character data."
+                          name="AlwaysUseDefaultCodePage">false</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the mode used to access the database."
+                          name="AccessMode"
+                          typeConverter="AccessMode">3</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepIdentity">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                          name="FastLoadKeepNulls">false</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                          name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                          name="FastLoadMaxInsertCommitSize">2147483647</property>
+                      </properties>
+                      <connections>
+                        <connection
+                          refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                          connectionManagerID="Package.ConnectionManagers[TLSCPU00048\SQLEXPRESS]"
+                          connectionManagerRefId="Package.ConnectionManagers[TLSCPU00048\SQLEXPRESS]"
+                          description="The OLE DB runtime connection used to access the database."
+                          name="OleDbConnection" />
+                      </connections>
+                      <inputs>
+                        <input
+                          refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                          errorOrTruncationOperation="Insert"
+                          errorRowDisposition="FailComponent"
+                          hasSideEffects="true"
+                          name="OLE DB Destination Input">
+                          <inputColumns>
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID Prometeo]"
+                              cachedDataType="wstr"
+                              cachedLength="15"
+                              cachedName="ID Prometeo"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID Prometeo]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ID Prometeo]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID Chat]"
+                              cachedDataType="wstr"
+                              cachedLength="15"
+                              cachedName="ID Chat"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID Chat]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ID Chat]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID Mensaje]"
+                              cachedDataType="wstr"
+                              cachedLength="15"
+                              cachedName="ID Mensaje"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID Mensaje]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ID Mensaje]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Campana]"
+                              cachedDataType="wstr"
+                              cachedLength="25"
+                              cachedName="Campana"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Campana]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Campana]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Fecha]"
+                              cachedDataType="dbTime"
+                              cachedName="Fecha"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Fecha]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Fecha]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID Contacto]"
+                              cachedDataType="wstr"
+                              cachedLength="25"
+                              cachedName="ID Contacto"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID Contacto]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ID Contacto]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Ident#]"
+                              cachedDataType="wstr"
+                              cachedLength="15"
+                              cachedName="Ident#"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ident#]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Ident#]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Nick]"
+                              cachedDataType="wstr"
+                              cachedLength="20"
+                              cachedName="Nick"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nick]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Nick]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Agente]"
+                              cachedDataType="wstr"
+                              cachedLength="25"
+                              cachedName="Agente"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Agente]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Agente]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Tipo]"
+                              cachedDataType="wstr"
+                              cachedLength="25"
+                              cachedName="Tipo"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Tipo]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tipo]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Estado]"
+                              cachedDataType="wstr"
+                              cachedLength="20"
+                              cachedName="Estado"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Estado]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Estado]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Canal]"
+                              cachedDataType="wstr"
+                              cachedLength="20"
+                              cachedName="Canal"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Canal]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Canal]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Detalle]"
+                              cachedDataType="wstr"
+                              cachedLength="25"
+                              cachedName="Detalle"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Detalle]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Detalle]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Pool]"
+                              cachedDataType="wstr"
+                              cachedLength="12"
+                              cachedName="Pool"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pool]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Pool]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Mensaje]"
+                              cachedDataType="wstr"
+                              cachedLength="4000"
+                              cachedName="Mensaje"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Mensaje]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Mensaje]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Tipificacion]"
+                              cachedDataType="wstr"
+                              cachedLength="50"
+                              cachedName="Tipificacion"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Tipificacion]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Tipificacion]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Estado Prometeo]"
+                              cachedDataType="wstr"
+                              cachedLength="35"
+                              cachedName="Estado Prometeo"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Estado Prometeo]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Estado Prometeo]" />
+                            <inputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Scoring]"
+                              cachedDataType="wstr"
+                              cachedLength="15"
+                              cachedName="Scoring"
+                              externalMetadataColumnId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Scoring]"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Scoring]" />
+                          </inputColumns>
+                          <externalMetadataColumns
+                            isUsed="True">
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID Prometeo]"
+                              dataType="wstr"
+                              length="15"
+                              name="ID Prometeo" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID Chat]"
+                              dataType="wstr"
+                              length="15"
+                              name="ID Chat" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID Mensaje]"
+                              dataType="wstr"
+                              length="15"
+                              name="ID Mensaje" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Campana]"
+                              dataType="wstr"
+                              length="25"
+                              name="Campana" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Fecha]"
+                              dataType="dbTimeStamp"
+                              name="Fecha" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID Contacto]"
+                              dataType="wstr"
+                              length="25"
+                              name="ID Contacto" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ident#]"
+                              dataType="wstr"
+                              length="15"
+                              name="Ident#" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nick]"
+                              dataType="wstr"
+                              length="20"
+                              name="Nick" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Agente]"
+                              dataType="wstr"
+                              length="25"
+                              name="Agente" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Tipo]"
+                              dataType="wstr"
+                              length="25"
+                              name="Tipo" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Estado]"
+                              dataType="wstr"
+                              length="20"
+                              name="Estado" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Canal]"
+                              dataType="wstr"
+                              length="20"
+                              name="Canal" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Detalle]"
+                              dataType="wstr"
+                              length="25"
+                              name="Detalle" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Pool]"
+                              dataType="wstr"
+                              length="12"
+                              name="Pool" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Mensaje]"
+                              dataType="nText"
+                              name="Mensaje" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Tipificacion]"
+                              dataType="wstr"
+                              length="50"
+                              name="Tipificacion" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Estado Prometeo]"
+                              dataType="wstr"
+                              length="35"
+                              name="Estado Prometeo" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Scoring]"
+                              dataType="wstr"
+                              length="25"
+                              name="Scoring" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[etl_tcreate]"
+                              dataType="dbTimeStamp"
+                              name="etl_tcreate" />
+                            <externalMetadataColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[etl_coderuntime]"
+                              dataType="wstr"
+                              length="50"
+                              name="etl_coderuntime" />
+                          </externalMetadataColumns>
+                        </input>
+                      </inputs>
+                      <outputs>
+                        <output
+                          refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                          exclusionGroup="1"
+                          isErrorOut="true"
+                          name="OLE DB Destination Error Output"
+                          synchronousInputId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                          <outputColumns>
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              dataType="i4"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                              name="ErrorCode"
+                              specialFlags="1" />
+                            <outputColumn
+                              refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              dataType="i4"
+                              lineageId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                              name="ErrorColumn"
+                              specialFlags="2" />
+                          </outputColumns>
+                          <externalMetadataColumns />
+                        </output>
+                      </outputs>
+                    </component>
+                  </components>
+                  <paths>
+                    <path
+                      refId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task.Paths[Excel Source Output]"
+                      endId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      name="Excel Source Output"
+                      startId="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source.Outputs[Excel Source Output]" />
+                  </paths>
+                </pipeline>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{A3899025-B2D9-4785-A4B9-753146ACE28C}"
+              DTS:ObjectName="{A3899025-B2D9-4785-A4B9-753146ACE28C}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::Archivo_Prometeo" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Contenedor de secuencias 1"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{71E3B8D3-3B5C-4402-8621-E1FE363CD3A7}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Contenedor de secuencias 1">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias 1\Limpiar tabla"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{D10341FB-5BDC-4BE6-BCEE-5CB215F0B3B1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Limpiar tabla"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D8F42A7A-858D-4303-B1F8-EBC9F03E2757}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE import_prometeo_seguimiento_data_pre" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Contenedor de secuencias 2"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Contenedor de secuencias"
+      DTS:DTSID="{2CAEDEBA-3980-4ED7-9ED5-02E772DAB37C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Contenedor de secuencias 2">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{CA199E56-F5BA-4A1A-B59B-69F21119D050}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="Archivo_Prometeo">
+          <DTS:VariableValue
+            DTS:DataType="8">C:\TLS_DB\DataSource_ETL\Prometeo_Seguimiento\Procesados\Indicadores_Bidireccionales_Marzo_2020.xlsx</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Contenedor de secuencias 2\Contenedor de bucles Foreach"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Contenedor de bucles Foreach"
+          DTS:DTSID="{2B00669B-3277-412C-BA62-D906AADEF8E7}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Contenedor de bucles Foreach">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachFileEnumerator"
+            DTS:DTSID="{66DC6FEA-37C0-4AB2-9FF0-225A7715AE7E}"
+            DTS:ObjectName="{66DC6FEA-37C0-4AB2-9FF0-225A7715AE7E}">
+            <DTS:ObjectData>
+              <ForEachFileEnumeratorProperties>
+                <FEFEProperty
+                  Folder="C:\TLS_DB\DataSource_ETL\Prometeo_Seguimiento" />
+                <FEFEProperty
+                  FileSpec="*.xlsx" />
+                <FEFEProperty
+                  FileNameRetrievalType="0" />
+                <FEFEProperty
+                  Recurse="0" />
+              </ForEachFileEnumeratorProperties>
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Contenedor de secuencias 2\Contenedor de bucles Foreach\Tarea Sistema de archivos"
+              DTS:CreationName="Microsoft.FileSystemTask"
+              DTS:Description="Tarea Sistema de archivos"
+              DTS:DTSID="{BF00FA3A-945E-4437-8696-56E201B4E5DB}"
+              DTS:ExecutableType="Microsoft.FileSystemTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Tarea Sistema de archivos"
+              DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <FileSystemData
+                  TaskOperationType="MoveFile"
+                  TaskSourcePath="{A774DBA0-65AF-4BAC-B36D-FA8329974E6D}"
+                  TaskDestinationPath="{D1987E76-DCCC-46DE-A683-697F60216A5F}" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{52F2F1B5-0D06-4280-8FE2-D4826F60063C}"
+              DTS:ObjectName="{52F2F1B5-0D06-4280-8FE2-D4826F60063C}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::Archivo_Prometeo" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{503F1B80-D970-49E2-A779-6A66910A09A4}"
+      DTS:From="Package\Contenedor de secuencias 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Contenedor de secuencias" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{DFDCC268-10D6-4126-9C80-9B1DA52F2355}"
+      DTS:From="Package\Contenedor de secuencias"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\Contenedor de secuencias 2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task"
+          TopLeft="24,20.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,118"
+          Size="205,160"
+          Id="Package\Contenedor de secuencias\Contenedor de bucles Foreach"
+          TopLeft="32,25" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="251,291"
+          Size="251,334"
+          Id="Package\Contenedor de secuencias"
+          TopLeft="376,71" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Contenedor de secuencias 1\Limpiar tabla"
+          TopLeft="43,21" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="282,115"
+          Size="282,158"
+          Id="Package\Contenedor de secuencias 1"
+          TopLeft="12,158" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="294,237.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82,0"
+              Start="0,0"
+              End="74.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="74.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Contenedor de secuencias 2\Contenedor de bucles Foreach\Tarea Sistema de archivos"
+          TopLeft="30,28" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="272,126"
+          Size="272,169"
+          Id="Package\Contenedor de secuencias 2\Contenedor de bucles Foreach"
+          TopLeft="24,20" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="321,244"
+          Size="321,287"
+          Id="Package\Contenedor de secuencias 2"
+          TopLeft="714,102" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="627,241.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="87,0"
+              Start="0,0"
+              End="79.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="79.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source"
+          TopLeft="244,92" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination"
+          TopLeft="295,187" />
+        <EdgeLayout
+          Id="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task.Paths[Excel Source Output]"
+          TopLeft="313.5,134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67,53"
+              Start="0,0"
+              End="67,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
+                  <mssgle:LineSegment
+                    End="63,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63,26.5"
+                    Point2="67,26.5"
+                    Point3="67,30.5" />
+                  <mssgle:LineSegment
+                    End="67,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Contenedor de secuencias\Contenedor de bucles Foreach\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

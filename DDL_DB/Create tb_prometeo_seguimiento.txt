@@ -1,0 +1,44 @@
+USE [TLS_DIGITAL]
+GO
+
+/****** Object:  Table [dbo].[tb_prometeo_seguimiento]    Script Date: 25/07/2020 17:43:58 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tb_prometeo_seguimiento](
+	[ID Prometeo] [nvarchar](15) NULL,
+	[ID Chat] [nvarchar](15) NULL,
+	[ID Mensaje] [nvarchar](15) NULL,
+	[Campana] [nvarchar](25) NULL,
+	[Fecha] [datetime] NULL,
+	[ID Contacto] [nvarchar](25) NULL,
+	[Ident#] [nvarchar](50) NULL,
+	[Nick] [nvarchar](50) NULL,
+	[Agente] [nvarchar](25) NULL,
+	[Tipo] [nvarchar](25) NULL,
+	[Estado] [nvarchar](20) NULL,
+	[Canal] [nvarchar](20) NULL,
+	[Detalle] [nvarchar](25) NULL,
+	[Pool] [nvarchar](12) NULL,
+	[Mensaje] [nvarchar](max) NULL,
+	[Tipificacion] [nvarchar](100) NULL,
+	[Estado Prometeo] [nvarchar](35) NULL,
+	[Scoring] [nvarchar](25) NULL,
+	[Fecha_accion] [datetime] NULL,
+	[Hora] [time](7) NULL,
+	[Pagos] [nvarchar](50) NULL,
+	[etl_tcreate] [datetime] NULL,
+	[etl_coderuntime] [nvarchar](50) NULL,
+	[id_registro] [bigint] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK_tb_prometeo_seguimiento] PRIMARY KEY CLUSTERED 
+(
+	[id_registro] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[tb_prometeo_seguimiento] ADD  CONSTRAINT [DF__tb_pr__etl_t__339FAB6E]  DEFAULT (getdate()) FOR [etl_tcreate]
+GO

@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "TLS_ETL_MKT", "TLS_ETL_MKT\TLS_ETL_MKT.dtproj", "{B914CDE1-8C79-4852-9482-2D369C26CADD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B914CDE1-8C79-4852-9482-2D369C26CADD}.Development|Default.ActiveCfg = Development
+		{B914CDE1-8C79-4852-9482-2D369C26CADD}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6CE0ABE-AE2A-4B92-9910-ECB5439B7D7A}
+	EndGlobalSection
+EndGlobal

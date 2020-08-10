@@ -1,0 +1,20 @@
+CREATE TABLE dbo.tb_bitacora_educacioncontinua
+	(
+	[ID Bitacora_EC] nvarchar(10) NOT NULL,
+	Fecha datetime NULL,
+	[Hora de Accion (envio)] time(7) NULL,
+	Producto nvarchar(10) NULL,
+	Accion nvarchar(30) NULL,
+	[Nombre de accion en plataforma] nvarchar(MAX) NULL,
+	[Detalle de accion] nvarchar(MAX) NULL,
+	[Fuente de Datos] nvarchar(50) NULL,
+	[Volumen de Datos] nvarchar(100) NULL,
+	[Contenido usado] nvarchar(MAX) NULL,
+	[Mensaje Predeterminado] nvarchar(MAX) NULL,
+	Estado nvarchar(25) NULL,
+	Codigo nvarchar(25) NULL,
+	Pieza nvarchar(MAX) NULL,
+	[Link Bitly] nvarchar(MAX) NULL
+	)  ON [PRIMARY]
+	 TEXTIMAGE_ON [PRIMARY]
+GO

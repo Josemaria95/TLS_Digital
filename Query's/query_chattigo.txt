@@ -1,0 +1,14 @@
+USE TLS_DIGITAL
+GO
+
+SELECT id_registro,etl_tcreate,
+	   [ID Chat],[ID Mensaje], 
+	   Campana, [Fecha Hora],
+	   dbo.GETWORDNUM(SUBSTRING(Mensaje,CHARINDEX(' TLS', Mensaje)+1,10),1,''),
+	   --dbo.GETWORDNUM(LEFT(CHARINDEX('TLS', Mensaje),20),1) AS Codigo_Campaña,
+	   Mensaje
+
+FROM import_chattigo_data_pre
+WHERE Mensaje LIKE '% TLS[0-9A-Z][0-9A-Z]%'
+--ORDER BY Codigo_Campaña
+GO

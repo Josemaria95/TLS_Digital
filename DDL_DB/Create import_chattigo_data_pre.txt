@@ -1,0 +1,21 @@
+CREATE TABLE dbo.import_chattigo_data_pre
+	(
+	[ID Chat] nvarchar(12) NULL,
+	[ID Mensaje] nvarchar(12) NULL,
+	Campana nvarchar(50) NULL,
+	[Fecha Hora] datetime NULL,
+	[ID Contacto] nvarchar(50) NULL,
+	Ident nvarchar(50) NULL,
+	Nick nvarchar(4000) NULL,
+	Agente nvarchar(100) NULL,
+	Tipo nvarchar(50) NULL,
+	Estado nvarchar(50) NULL,
+	Canal nvarchar(50) NULL,
+	Mensaje nvarchar(MAX) NULL,
+	Attachment nvarchar(MAX) NULL,
+	etl_tcreate datetime NULL,
+	etl_coderuntime nvarchar(50) NULL,
+	id_registro bigint NOT NULL IDENTITY (1, 1)
+	)  ON [PRIMARY]
+	 TEXTIMAGE_ON [PRIMARY]
+GO

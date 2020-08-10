@@ -1,0 +1,29 @@
+CREATE TABLE dbo.import_prometeo_seguimiento_data_pre
+	(
+	[ID Prometeo] nvarchar(15) NULL,
+	[ID Chat] nvarchar(15) NULL,
+	[ID Mensaje] nvarchar(15) NULL,
+	Campana nvarchar(25) NULL,
+	Fecha datetime NULL,
+	[ID Contacto] nvarchar(25) NULL,
+	Ident# nvarchar(50) NULL,
+	Nick nvarchar(50) NULL,
+	Agente nvarchar(25) NULL,
+	Tipo nvarchar(25) NULL,
+	Estado nvarchar(20) NULL,
+	Canal nvarchar(20) NULL,
+	Detalle nvarchar(25) NULL,
+	Pool nvarchar(12) NULL,
+	Mensaje nvarchar(MAX) NULL,
+	Tipificacion nvarchar(100) NULL,
+	[Estado Prometeo] nvarchar(35) NULL,
+	Scoring nvarchar(25) NULL,
+	Fecha_accion datetime NULL,
+	Hora time(7) NULL,
+	Pagos nvarchar(50) NULL,
+	etl_tcreate datetime NULL,
+	etl_coderuntime nvarchar(50) NULL,
+	id_registro bigint NOT NULL IDENTITY (1, 1)
+	)  ON [PRIMARY]
+	 TEXTIMAGE_ON [PRIMARY]
+GO

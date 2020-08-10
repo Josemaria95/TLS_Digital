@@ -1,0 +1,22 @@
+CREATE TABLE [dbo].[tb_bitacora_antegrado](
+	[Fecha] [datetime] NULL,
+	[Hora de Accion (envio)] [time] NULL,
+	[Producto] [nvarchar](10) NULL,
+	[Accion] [nvarchar](30) NULL,
+	[Detalle] [nvarchar](max) NULL,
+	[Nombre de Accion] [nvarchar](max) NULL,
+	[Fuente de Datos] [nvarchar](100) NULL,
+	[Volumen de Datos] [nvarchar](100) NULL,
+	[Contenido usado] [nvarchar](max) NULL,
+	[Mensaje Predeterminado] [nvarchar](max) NULL,
+	[Estado] [nvarchar](25) NULL,
+	[Codigo] [nvarchar](25) NULL,
+	[Pieza] [nvarchar](max) NULL,
+	[Link Bitly] [nvarchar](max) NULL,
+	[id_registro] [bigint] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK_tb_bitacora_antegrado] PRIMARY KEY CLUSTERED 
+(
+	[id_registro] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO

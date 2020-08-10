@@ -1,0 +1,23 @@
+CREATE TABLE dbo.import_bitacora_educacioncontinua_data_pre
+	(
+	[ID Bitacora_EC] nvarchar(10) NULL,
+	Fecha datetime NULL,
+	[Hora de Accion (envio)] time(7) NULL,
+	Producto nvarchar(10) NULL,
+	Accion nvarchar(30) NULL,
+	Detalle nvarchar(MAX) NULL,
+	[Nombre de accion] nvarchar(MAX) NULL,
+	[Fuente de Datos] nvarchar(50) NULL,
+	[Volumen de datos] nvarchar(100) NULL,
+	[Contenido usado] nvarchar(MAX) NULL,
+	[Mensaje Predeterminado] nvarchar(MAX) NULL,
+	Estado nvarchar(25) NULL,
+	Codigo nvarchar(25) NULL,
+	Pieza nvarchar(MAX) NULL,
+	[Link Bitly] nvarchar(MAX) NULL,
+	etl_tcreate datetime NULL,
+	etl_coderuntime nvarchar(50) NULL,
+	id_registro bigint NOT NULL IDENTITY (1, 1)
+	)  ON [PRIMARY]
+	 TEXTIMAGE_ON [PRIMARY]
+GO
